@@ -1,18 +1,41 @@
-import { Col, Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Instagram, TwitterX, Facebook, Linkedin } from 'react-bootstrap-icons';
 
-/** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 bg-light">
+  <footer className="footer-main bg-uh-green text-white">
     <Container>
-      <Col className="text-center">
-        Department of Information and Computer Sciences
-        <br />
-        University of Hawaii
-        <br />
-        Honolulu, HI 96822
-        <br />
-        <a href="http://ics-software-engineering.github.io/nextjs-application-template">Template Home Page</a>
-      </Col>
+      <Row className="align-items-center">
+
+        {/* LEFT */}
+        <Col md={4} className="d-flex align-items-center justify-content-start">
+          <img src="/logo.png" className="footer-logo me-2" />
+          <div className="footer-brand-text">
+            <div>UH MĀNOA</div>
+            <div>RAINBOW WARRIORS</div>
+          </div>
+        </Col>
+
+        {/* CENTER */}
+        <Col md={4} className="text-center">
+          <div className="footer-links-row">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+          </div>
+          <div className="footer-copy">
+            © 2026 Bow-lletins
+          </div>
+        </Col>
+
+        {/* RIGHT */}
+        <Col md={4} className="d-flex justify-content-end footer-social">
+          <a href="#"><Instagram /></a>
+          <a href="#"><TwitterX /></a>
+          <a href="#"><Facebook /></a>
+          <a href="#"><Linkedin /></a>
+        </Col>
+
+      </Row>
     </Container>
   </footer>
 );
