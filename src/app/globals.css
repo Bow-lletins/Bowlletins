@@ -577,4 +577,10 @@ body {
   .board-search {
     max-width: 100%;
   }
+  .profile-photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 }
