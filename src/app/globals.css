@@ -845,19 +845,6 @@ body {
   margin-bottom: 10px;
 }
 
-.flyer-category-badge {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  background-color: #024731;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 4px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
 .flyer-detail-description {
   position: relative;
   z-index: 2;
@@ -887,4 +874,55 @@ body {
   color: #024731;
   font-size: 1.1rem;
   flex-shrink: 0;
+}
+
+/* FLYER ACTION BUTTONS */
+.flyer-action-buttons {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.flyer-btn-rsvp {
+  background-color: #024731 !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.flyer-btn-rsvp:hover {
+  background-color: #17634b !important;
+}
+
+.flyer-btn-save {
+  background-color: #f5f1e6 !important;
+  border: 2px solid #024731 !important;
+  color: #024731 !important;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.flyer-btn-save:hover {
+  background-color: #e8e4d8 !important;
+}
+
+.flyer-btn-share {
+  background-color: #f5f1e6 !important;
+  border: 2px solid #024731 !important;
+  color: #024731 !important;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.flyer-btn-share:hover {
+  background-color: #e8e4d8 !important;
 }

@@ -1,5 +1,6 @@
 import { Flyer } from '@prisma/client';
 import { CalendarEventFill, GeoAltFill, EnvelopeFill } from 'react-bootstrap-icons';
+import { Button } from 'react-bootstrap';
 
 const FlyerDetailCard = ({ flyer }: { flyer: Flyer }) => (
   <div className="flyer-detail-note">
@@ -22,6 +23,12 @@ const FlyerDetailCard = ({ flyer }: { flyer: Flyer }) => (
         <EnvelopeFill className="flyer-info-icon" />
         <span>{flyer.contactInfo}</span>
       </div>
+    </div>
+
+    <div className="flyer-action-buttons">
+      <Button className="flyer-btn-rsvp">RSVP</Button>
+      <Button className="flyer-btn-save">Save</Button>
+      <Button className="flyer-btn-share">Share</Button>
     </div>
   </div>
 );
