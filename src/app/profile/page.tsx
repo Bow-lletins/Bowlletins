@@ -1,14 +1,11 @@
 'use client';
 
 import { ChangeEvent, useState } from 'react';
-import { completeProfile } from '@/lib/dbActions';
-import { Major } from '@prisma/client';
-import { CompleteProfileSchema } from '@/lib/validationSchemas';
 
 export default function ProfilePage() {
   const [fullName, setFullName] = useState('');
   const [major, setMajor] = useState('');
-  const [email, setEmail] = useState('');
+  const [gender, setGender] = useState('');
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [interests, setInterests] = useState({
     jobs: false,
@@ -31,17 +28,15 @@ export default function ProfilePage() {
     }));
   };
 
-  const handleSubmit = async() => {
-    const formData = { fullName, email, major, image: photoPreview };
-    try{
-      await CompleteProfileSchema.validate(formData);
-      await completeProfile({ fullName, email, major: major as Major, image: photoPreview });
-    alert('Profile completed successfully! Redirecting to dashboard...');
-  } catch (error) {
-    console.error('Error completing profile:', error);
-    alert('There was an error completing your profile. Please try again.');
-  }
-};
+  const handleSubmit = () => {
+    console.log({
+      fullName,
+      major,
+      gender,
+      photoPreview,
+      interests,
+    });
+  };
 
   return (
     <section className="profile-page">
@@ -50,9 +45,9 @@ export default function ProfilePage() {
           <div className="profile-board-pin"></div>
 
           <div className="profile-header text-center">
-            <h1 className="profile-title">Create Your Profile</h1>
+            <h1 className="profile-title">Customize Your Profile</h1>
             <p className="profile-subtitle">
-              Welcome to Bow-lletins! Let&apos;s set up your profile so you can get
+              Welcome to Bow-lletins! Customize your profile so you can get
               personalized updates and opportunities.
             </p>
           </div>
@@ -114,7 +109,10 @@ export default function ProfilePage() {
                     onChange={(e) => setMajor(e.target.value)}
                   >
                     <option value="">Select Major</option>
-                    <option value="Computer_Science">Computer Science</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information and Computer Sciences">
+                      Information and Computer Sciences
+                    </option>
                     <option value="Business">Business</option>
                     <option value="Biology">Biology</option>
                     <option value="Engineering">Engineering</option>
@@ -125,17 +123,20 @@ export default function ProfilePage() {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label profile-label">
-                    Email
+                  <label htmlFor="gender" className="form-label profile-label">
+                    Gender
                   </label>
-                  <input
-                    id="email"
-                    type="email"
-                    className="form-control profile-input"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+                  <select
+                    id="gender"
+                    className="form-select profile-input"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Prefer not to answer">Prefer not to answer</option>
+                  </select>
                 </div>
               </div>
             </div>

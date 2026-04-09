@@ -19,6 +19,6 @@ export const EditStuffSchema = Yup.object({
 export const CompleteProfileSchema = Yup.object({
   fullName: Yup.string().required(),
   email: Yup.string().email().required(),
-  major: Yup.string().oneOf(Object.values(Major)).required(),
+  major: Yup.string().required(),
   image: Yup.string().nullable(),
 });
