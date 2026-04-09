@@ -204,7 +204,7 @@ body {
   margin-bottom: 0;
 }
 
-/* SIGNUP NOTE */
+/* LOGIN/SIGNUP NOTE */
 .hero-right {
   display: flex;
   justify-content: flex-end;
@@ -276,6 +276,17 @@ body {
 
 .signup-login-text span {
   font-weight: 700;
+}
+
+.signup-link {
+  color: #0c4b37;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  color: #17634b;
+  text-decoration: underline;
 }
 
 /* RAINBOW CORNER */
@@ -760,14 +771,4 @@ body {
     width: 145px;
     height: 145px;
   }
-  .signup-link {
-  color: #0c4b37;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.signup-link:hover {
-  color: #17634b;
-  text-decoration: underline;
-}
 }
