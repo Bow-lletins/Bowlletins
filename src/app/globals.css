@@ -56,16 +56,18 @@ body {
 }
 
 .nav-right {
+  display: flex;
+  align-items: center;
   margin-left: auto;
-  z-index: 2;
+  gap: 12px;
 }
 
 /* TRUE CENTER */
 .nav-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  gap: 30px;
+  position: flex;
+  left: 30px;
+  margin: 0 auto;
+  align-items: center;
 }
 
 /* Green text */
