@@ -23,22 +23,21 @@ export default async function BoardPage() {
     } | null,
   );
 
-  const sessionUser = session?.user as unknown as SessionUser;
-
-  const dbUser = await prisma.user.findUnique({      where: { email: sessionUser.email },
-  select: {
-    fullName: true,
-    major: true,
-    image: true,
-  }
+  const dbUser = await prisma.user.findUnique({
+    where: { email: session!.user.email! },
+    select: {
+      fullName: true,
+      major: true,
+      image: true,
+    },
   });
 
   const user: SessionUser = {
-    email: sessionUser.email,
-    id: sessionUser.id,
-    name: dbUser?.fullName || sessionUser.name || 'User',
+    email: session!.user.email!,
+    id: session!.user.id,
+    name: dbUser?.fullName || 'User',
     major: dbUser?.major || 'Other',
-    image: dbUser?.image || sessionUser.image || '',
+    image: dbUser?.image || '',
   };
 
 

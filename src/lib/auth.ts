@@ -22,7 +22,9 @@ declare module 'next-auth' {
   }
 }
 
+
 export const { auth, signIn, signOut, handlers } = NextAuth({
+  trustHost: true,
   providers: [
     Credentials({
       credentials: {
@@ -32,53 +34,45 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
-        const user = await prisma.user.findUnique({ 
-          where: { email: credentials.email as string } 
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email as string },
         });
 
         if (!user || !user.password) return null;
 
-        const isValid = await bcrypt.compare(credentials.password as string, user.password);
+        const isValid = await bcrypt.compare(
+          credentials.password as string,
+          user.password
+        );
         if (!isValid) return null;
 
+        
         return {
           id: user.id.toString(),
           email: user.email,
-          name: user.fullName, // Map database fullName to standard 'name'
-          image: user.image,
-          major: user.major as Major,
           role: user.role,
         };
       },
     }),
   ],
+
+  pages: {
+    signIn: '/auth/signin',
+    error: '/auth/signin',
+  },
+
   callbacks: {
-    jwt({ token, user, trigger, session }) {
-      // Runs on Sign In
+    jwt({ token, user }) {
       if (user) {
         token.id = user.id;
         token.role = user.role;
-        token.name = user.fullName;
-        token.image = user.image;
-        token.major = user.major;
       }
-
-      // Runs when you call update() in ProfileSettings
-      if (trigger === 'update' && session) {
-      // These checks ensure that if you send an empty string, it's ignored
-      if (session.fullName?.trim()) token.name = session.fullName.trim();
-      if (session.name?.trim())     token.name = session.name.trim();
-      if (session.image)            token.image = session.image;
-      if (session.major)            token.major = session.major;
-    }
-    
-    return token;
+      return token;
     },
     session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.role = token.role as string;
-        session.user.major = token.major as Major;
       }
       return session;
     },
