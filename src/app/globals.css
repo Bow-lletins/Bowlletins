@@ -221,13 +221,36 @@ body {
   font-weight: 800;
   color: #0c4b37;
   margin-bottom: 24px;
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.4),
+     1px -1px 0 rgba(255, 255, 255, 0.4),
+    -1px  1px 0 rgba(255, 255, 255, 0.4),
+     1px  1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .hero-subtitle {
   font-size: 1.6rem;
   line-height: 1.35;
+  font-weight: 500;
   color: #1f4032;
   margin-bottom: 0;
+}
+
+.hero-text-block {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, #f8f4ec 0%, #f2ede4 100%);
+  padding: 26px 26px 26px 26px;
+  border-radius: 4px;
+  max-width: 700px;
+}
+
+.hero-pin {
+  position: absolute;
+  top: 250px;
+  right: -30px;
+  width: 150px;
+  z-index: 2;
 }
 
 /* LOGIN/SIGNUP NOTE */
@@ -513,6 +536,7 @@ body {
   justify-content: center;
   gap: 18px;
   position: relative;
+  top: -7.5px;
 }
 
 .category-item h5 {

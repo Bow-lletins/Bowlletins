@@ -14,6 +14,8 @@ export default function Home() {
           <Row className="g-0 align-items-start hero-content">
             <Col lg={6} className="hero-left">
               <div className="hero-text-block">
+                <img src="/biggreenpin.png" className="hero-pin" />
+                <div className="note-corner-rainbow" />
                 <h1 className="hero-title">
                   Stay Connected with
                   <br />
