@@ -67,7 +67,7 @@ export default function Home() {
                 </p>  
 
 
-                <Button className="hero-cta-btn" href="/posts">
+                <Button className="hero-cta-btn" href="Explore">
                   Explore What&apos;s Happening
                 </Button>
 
@@ -93,7 +93,7 @@ export default function Home() {
 
               <h2 className="login-paper-title">Join the Board</h2>
 
-              <Form method="post" onSubmit={handleSubmit}>
+              <Form method="Explore" onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <Form.Control
                     name="email"
@@ -185,7 +185,7 @@ export default function Home() {
                 <p>Find jobs, clubs, and events<br />
                         all in one place.
 </p>
-                <a href="/posts" className="feature-link feature-link-green">
+                <a href="Explore" className="feature-link feature-link-green">
                   View Jobs
                 </a>
               </div>
@@ -199,7 +199,7 @@ export default function Home() {
                 </div>
                 <h3>Campus Events</h3>
                 <p>Discover events, deadlines, and activities happening around campus.</p>
-                <a href="/posts" className="feature-link feature-link-yellow">
+                <a href="Explore" className="feature-link feature-link-yellow">
                   See Events
                 </a>
               </div>
@@ -213,7 +213,7 @@ export default function Home() {
                 </div>
                 <h3>Study Groups</h3>
                 <p>Join or create study groups and connect with your peers.</p>
-                <a href="/posts" className="feature-link feature-link-red">
+                <a href="Explore" className="feature-link feature-link-red">
                   Explore Groups
                 </a>
               </div>
@@ -227,7 +227,7 @@ export default function Home() {
                 </div>
                 <h3>Internships</h3>
                 <p>Browse internship listings and kickstart your career.</p>
-                <a href="/posts" className="feature-link feature-link-blue">
+                <a href="Explore" className="feature-link feature-link-blue">
                   Find Internships
                 </a>
               </div>

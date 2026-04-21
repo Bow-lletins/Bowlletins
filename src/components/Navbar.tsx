@@ -50,8 +50,8 @@ const NavBar: React.FC = () => {
                 Home
               </Nav.Link>
 
-              <Nav.Link href="/posts" className="nav-link-custom" active={pathName === '/posts'}>
-                Posts
+              <Nav.Link href="Explore" className="nav-link-custom" active={pathName === 'Explore'}>
+                Explore
               </Nav.Link>
 
               <NavDropdown title="Categories" className="nav-link-custom">
@@ -78,8 +78,8 @@ const NavBar: React.FC = () => {
                 Home
               </Nav.Link>
 
-              <Nav.Link href="/posts" className="nav-link-custom">
-                Posts
+              <Nav.Link href="Explore" className="nav-link-custom">
+                Explore
               </Nav.Link>
 
               <NavDropdown title="Categories" className="nav-link-custom">
