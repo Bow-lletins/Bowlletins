@@ -14,7 +14,7 @@ export default function SignupPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
   e.preventDefault();
   await CreateAccountSchema.validate({ fullName: name, email, password });
   await createUser({ fullName: name, email, password });
