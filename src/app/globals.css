@@ -24,7 +24,7 @@ body {
 body {
   --bs-dark: var(--nat-navbar-bg);
   --bs-dark-rgb: var(--nat-navbar-bg-rgb);
-  background: fixed center url("/bg1.png");
+  background: fixed center url("/bg1_nopin.png");
   background-size: cover;
 }
 
@@ -42,6 +42,7 @@ body {
   position: relative;
   z-index: 3000;
 }
+
 
 /* Desktop center nav */
 .nav-center {
@@ -277,7 +278,7 @@ body {
 
 /* LANDING PAGE STYLING */
 .landing-page {
-  background-image: url("/bg1.png");
+  background-image: url("/bg1_nopin.png");
 }
 
 /* HERO BOARD */
@@ -593,37 +594,6 @@ body {
   background: #4276b4;
 }
 
-/* BOARD SEARCH */
-.board-search {
-  position: absolute;
-  top: 60%;
-  left: 60px;
-  transform: translateY(-50%);
-  width: 360px;
-  height: 56px;
-  display: flex;
-  z-index: 3;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.14);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.board-search input {
-  flex: 1;
-  border: none;
-  padding: 0 18px;
-  font-size: 1.1rem;
-  background: #fbf8f4;
-  outline: none;
-}
-
-.board-search button {
-  width: 72px;
-  border: none;
-  background: #0c4b37;
-  color: white;
-  font-size: 1.4rem;
-}
 
 /* CATEGORY STRIP */
 .category-strip {
@@ -1014,17 +984,13 @@ body {
     margin-top: 30px;
   }
 
-  .sticky-note,
-  .board-search {
-    position: static;
-    transform: none !important;
-    width: 100%;
-    margin: 20px auto 0 auto;
-  }
+.sticky-note {
+  position: static;
+  transform: none !important;
+  width: 100%;
+  margin: 20px auto 0 auto;
+}
 
-  .board-search {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 992px) {
@@ -1463,4 +1429,121 @@ body {
 
 .about-goal-card strong {
   color: white;
+}
+
+/* NAVBAR SEARCH */
+.nav-search {
+  border-radius: 20px;
+  padding: 6px 12px;
+  min-width: 180px;
+}
+
+@media (max-width: 768px) {
+  .nav-search {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.nav-search-form {
+  display: flex;
+  align-items: center;
+}
+
+.nav-search-wrap {
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 38px;
+  background: #fbf8f4;
+  border: 1px solid #ddd6c8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.nav-search-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 14px;
+  font-size: 0.95rem;
+  outline: none;
+  color: #024731;
+}
+
+.nav-search-input::placeholder {
+  color: #6f7d75;
+}
+
+.nav-search-btn {
+  width: 42px;
+  height: 100%;
+  border: none;
+  background: #024731;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-search-btn:hover {
+  background: #17634b;
+}
+
+@media (max-width: 767.98px) {
+  .nav-search-form {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-search-wrap {
+    width: 100%;
+  }
+}
+
+/* NAVBAR AVATAR */
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-avatar-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #024731;
+}
+
+.nav-avatar-fallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #024731;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.nav-avatar-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* remove dropdown arrow ONLY on desktop */
+@media (min-width: 768px) {
+  .navbar .dropdown-toggle::after {
+    display: none !important;
+  }
+}
+
+/* remove arrow under avatar in dropdown */
+.nav-auth .dropdown-toggle::after {
+  display: none !important;
 }
