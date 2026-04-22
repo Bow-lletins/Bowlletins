@@ -19,9 +19,11 @@ const CategoryPage = async ({ params }: { params: Promise<{ category: string }> 
     <main className="category-page">
       <Container className="py-5">
         <div className="category-header">
-          <h1 className="category-title">{category}</h1>
+          <h1 className="category-title">
+            {category === 'StudyGroups' ? 'Study Groups' : category}
+          </h1>
           <p className="category-subtitle">
-            {flyers.length} {flyers.length === 1 ? 'flyer' : 'flyers'} posted
+             {flyers.length} {flyers.length === 1 ? 'flyer' : 'flyers'} posted
           </p>
         </div>
         {flyers.length === 0 ? (
