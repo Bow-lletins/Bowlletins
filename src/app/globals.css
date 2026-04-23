@@ -2095,3 +2095,37 @@ body {
 .nav-auth .dropdown-toggle::after {
   display: none !important;
 }
+
+/* CREATE FLYER PAGE */
+.create-flyer-page {
+  min-height: 100vh;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.create-flyer-note {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  background: linear-gradient(180deg, #f8f4ec 0%, #f2ede4 100%);
+  border-radius: 4px;
+  padding: 52px 38px 38px 38px;
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, 0.20),
+    inset 0 0 0 1px rgba(120, 100, 70, 0.10);
+}
+
+.create-flyer-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0c4b37;
+  margin-bottom: 8px;
+}
+
+.create-flyer-subtitle {
+  font-size: 1rem;
+  color: #38453e;
+  margin-bottom: 28px;
+}
