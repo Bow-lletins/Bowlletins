@@ -59,7 +59,7 @@ model Flyer {
   id          Int      @id @default(autoincrement())
   title       String
   description String
-  category    Category
+  category    FlyerCategory @default(Other)
   date        String
   location    String
   contactInfo String
