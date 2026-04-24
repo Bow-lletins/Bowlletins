@@ -6,6 +6,36 @@ datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  role     Role    @default(USER)
+  fullName String?
+  image    String? @default("/defaultpfp.png")
+  major    Major?  @default(Other)
+}
+
+model Stuff {
+  id        Int       @id @default(autoincrement())
+  name      String
+  quantity  Int
+  condition Condition @default(good)
+  owner     String
+}
+
+model Flyer {
+  id          Int           @id @default(autoincrement())
+  title       String
+  description String
+  date        String
+  location    String
+  contactInfo String
+  owner       String
+  category    FlyerCategory @default(Other)
+  savedBy     String[]
+}
+
 enum Role {
   USER
   ADMIN
@@ -37,37 +67,7 @@ enum Condition {
   poor
 }
 
-model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  fullName String?
-  major    Major?  @default(Other)
-  image    String? @default("/defaultpfp.png")
-  role     Role    @default(USER)
-}
-
-model Stuff {
-  id        Int       @id @default(autoincrement())
-  name      String
-  quantity  Int
-  condition Condition @default(good)
-  owner     String
-}
-
-model Flyer {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  category    FlyerCategory @default(Other)
-  date        String
-  location    String
-  contactInfo String
-  owner       String
-  savedBy     String[] //array of emails
-}
-
-enum FlyerCategory{
+enum FlyerCategory {
   Jobs
   Internships
   Volunteer

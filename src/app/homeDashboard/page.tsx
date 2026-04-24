@@ -22,6 +22,7 @@ type Flyer = {
   location: string;
   contactInfo: string;
   owner: string;
+  savedBy: string[];
 };
 
 export default async function BoardPage() {
@@ -51,7 +52,7 @@ export default async function BoardPage() {
   };
 
   const savedFlyers = await prisma.flyer.findMany({
-    where: { owner: user.email },
+    where: { savedBy: { has: session!.user.email! } },
   });
 
   return (
@@ -113,7 +114,7 @@ const MainFeed: React.FC<{ user: SessionUser; savedFlyers: Flyer[] }> = ({ user,
                   <small className="text-muted">{flyer.description}</small>
                 </div>
                 <a
-                  href={`/flyer/${flyer.id}`}
+                  href={`/flyers/${flyer.id}`}
                   className="btn btn-sm btn-outline-success ms-3"
                 >
                   View Post
