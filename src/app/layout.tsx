@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/Navbar';
 import Providers from './providers';
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,6 +14,7 @@ const geistSans = Geist({
 const caveat = Caveat({
   subsets: ["latin"],
   weight: ["400", "600"],
+  variable: "--font-caveat", 
 });
 
 const geistMono = Geist_Mono({
@@ -29,17 +29,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const classString = `${geistSans.variable} ${geistMono.variable} wrapper`;
+}) {
+const classString = `${geistSans.variable} ${geistMono.variable} ${caveat.variable} wrapper`;
+
   return (
     <html lang="en">
       <body className={classString}>
-       <Providers>
+        <Providers>
           <NavBar />
-          <main className="flex-grow-1"></main>
-          {children}
+
+          {/* FIXED: main now wraps children */}
+          <main className="flex-grow-1">
+            {children}
+          </main>
+
           <Footer />
         </Providers>
       </body>

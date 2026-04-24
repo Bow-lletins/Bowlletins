@@ -50,7 +50,7 @@ const NavBar: React.FC = () => {
                 Home
               </Nav.Link>
 
-              <Nav.Link href="Explore" className="nav-link-custom" active={pathName === 'Explore'}>
+              <Nav.Link href="explore" className="nav-link-custom" active={pathName === 'explore'}>
                 Explore
               </Nav.Link>
 
