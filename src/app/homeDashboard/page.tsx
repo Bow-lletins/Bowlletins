@@ -51,7 +51,7 @@ export default async function BoardPage() {
   };
 
   const savedFlyers = await prisma.flyer.findMany({
-    where: { owner: user.email },
+    where: { savedby: { has: session!.user.id } },
   });
 
   return (
