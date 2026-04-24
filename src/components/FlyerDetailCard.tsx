@@ -1,8 +1,41 @@
+'use client';
+
 import { Flyer } from '@prisma/client';
 import { CalendarEventFill, GeoAltFill, EnvelopeFill } from 'react-bootstrap-icons';
 import { Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { saveFlyer, unsaveFlyer } from '@/app/flyers/[id]/actions';
 
-const FlyerDetailCard = ({ flyer }: { flyer: Flyer }) => (
+const FlyerDetailCard = ({ flyer, userEmail }: { flyer: Flyer; userEmail: string | null }) => {
+  const [saved, setSaved] = useState(userEmail ? flyer.savedBy.includes(userEmail) : false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSave = async () => {
+    if (!userEmail) return;
+    setLoading(true);
+    try {
+      if (saved) {
+        await unsaveFlyer(flyer.id);
+        setSaved(false);
+      } else {
+        await saveFlyer(flyer.id);
+        setSaved(true);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRSVP = () => {
+    window.location.href = `mailto:${flyer.contactInfo}?subject=RSVP: ${flyer.title}`;
+  };
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied to clipboard!');
+  };
+
+  return (
   <div className="flyer-detail-note">
     <div className="flyer-pin pin-red" />
     <div className="flyer-note-corner-rainbow" />
@@ -30,10 +63,17 @@ const FlyerDetailCard = ({ flyer }: { flyer: Flyer }) => (
 
     <div className="flyer-action-buttons">
       <Button className="flyer-btn-rsvp">RSVP</Button>
-      <Button className="flyer-btn-save">Save</Button>
-      <Button className="flyer-btn-share">Share</Button>
+      <Button
+          className={saved ? 'flyer-btn-unsave' : 'flyer-btn-save'}
+          onClick={handleSave}
+          disabled={loading || !userEmail}
+        >
+          {loading ? '...' : saved ? 'Unsave' : 'Save'}
+        </Button>
+      <Button className="flyer-btn-share" onClick ={handleShare}>Share</Button>
     </div>
   </div>
-);
+  );
+};
 
 export default FlyerDetailCard;
