@@ -128,13 +128,3 @@ const StatCard = ({
     <p className="text-muted mb-0 small">{label}</p>
   </div>
 );
-
-function conditionColor(condition: Condition): string {
-  switch (condition) {
-    case 'excellent': return 'success';
-    case 'good':      return 'primary';
-    case 'fair':      return 'warning';
-    case 'poor':      return 'danger';
-    default:          return 'secondary';
-  }
-}
