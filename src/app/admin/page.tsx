@@ -35,9 +35,6 @@ export default async function AdminPage() {
         <Col md={3}>
           <StatCard label="Total Saves" value={totalSaves} color="warning" />
         </Col>
-        <Col md={3}>
-          <StatCard label="Stuff Listings" value={allStuff.length} color="info" />
-        </Col>
       </Row>
 
       {/* Users Table */}
@@ -101,7 +98,7 @@ export default async function AdminPage() {
                 <td>{f.savedBy.length}</td>
                 <td>
                   <a
-                    href={`/flyer/${f.id}`}
+                    href={`/flyers/${f.id}`}
                     className="btn btn-sm btn-outline-primary me-2"
                   >
                     View
@@ -112,35 +109,7 @@ export default async function AdminPage() {
           </tbody>
         </Table>
       </section>
-
-      {/* Stuff Table */}
-      <section>
-        <h4 className="fw-bold mb-3">Stuff Listings</h4>
-        <Table striped bordered hover responsive>
-          <thead className="table-dark">
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Condition</th>
-              <th>Owner</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allStuff.map((s) => (
-              <tr key={s.id}>
-                <td>{s.id}</td>
-                <td>{s.name}</td>
-                <td>{s.quantity}</td>
-                <td>
-                  <Badge bg={conditionColor(s.condition)}>{s.condition}</Badge>
-                </td>
-                <td>{s.owner}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </section>
+      
     </Container>
   );
 }
