@@ -96,13 +96,13 @@ export default function PageSwitch({
 
             <section>
               <h3 className="section-subtitle mb-4">
-                {activeTab === 'saved' ? 'Saved Posts' : 'My Posts'}
+                {activeTab === 'saved' ? 'Saved Flyers' : 'My Flyers'}
               </h3>
 
               <div style={{ maxHeight: '60vh', overflowY: 'auto', paddingRight: '8px' }}>
                 {activeTab === 'saved' ? (
                   savedFlyers.length === 0 ? (
-                    <p className="text-muted">No saved posts yet.</p>
+                    <p className="text-muted">No saved flyers yet.</p>
                   ) : (
                     savedFlyers.map((flyer) => (
                       <FlyerCard key={flyer.id} flyer={flyer} />
