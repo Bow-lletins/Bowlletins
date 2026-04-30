@@ -1657,6 +1657,34 @@ body {
   background-color: #e8e4d8 !important;
 }
 
+.flyer-btn-make-private {
+  background-color: #f5f1e6 !important;
+  border: 2px solid #024731 !important;
+  color: #024731 !important;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.flyer-btn-make-private:hover {
+  background-color: #e8e4d8 !important;
+}
+
+.flyer-btn-make-public {
+  background-color: #024731 !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.flyer-btn-make-public:hover {
+  background-color: #17634b !important;
+}
+
 /* ABOUT PAGE */
 .about-page {
   background: #eaf3ea;
@@ -2711,7 +2739,9 @@ footer {
   .flyer-btn-rsvp,
   .flyer-btn-save,
   .flyer-btn-unsave,
-  .flyer-btn-share {
+  .flyer-btn-share,
+  .flyer-btn-make-private,
+  .flyer-btn-make-public {
     width: 100%;
     flex: none;
   }
