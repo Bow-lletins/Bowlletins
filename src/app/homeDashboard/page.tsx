@@ -41,9 +41,9 @@ export default async function BoardPage() {
     role: dbUser?.role || 'user',
   };
 
-  // Flyers the user has saved
+  // Flyers the user has saved (exclude private flyers they don't own)
   const savedFlyers = await prisma.flyer.findMany({
-    where: { savedBy: { has: session!.user.email! } },
+    where: { savedBy: { has: session!.user.email! }, isPrivate: false },
   });
 
   // Flyers the user created (owned by their email)

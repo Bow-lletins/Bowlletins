@@ -12,7 +12,7 @@ const CategoryPage = async ({ params }: { params: Promise<{ category: string }> 
   if (!validCategories.includes(category)) return notFound();
 
   const flyers = await prisma.flyer.findMany({
-    where: { category: category as FlyerCategory },
+    where: { category: category as FlyerCategory, isPrivate: false },
   });
 
   return (

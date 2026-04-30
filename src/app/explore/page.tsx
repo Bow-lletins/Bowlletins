@@ -3,6 +3,7 @@ import ExploreClient from './ExploreClient';
 
 export default async function ExplorePage() {
   const flyers = await prisma.flyer.findMany({
+    where: { isPrivate: false },
     orderBy: {
       id: 'desc',
     },
