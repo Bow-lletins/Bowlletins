@@ -2201,6 +2201,30 @@ body {
   background-color: #17634b !important;
 }
 
+.create-flyer-private-toggle .form-check-label {
+  font-weight: 600;
+  color: #0c4b37;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.create-flyer-private-toggle .form-check-input:checked {
+  background-color: #024731;
+  border-color: #024731;
+}
+
+.create-flyer-private-toggle .form-check-input:focus {
+  box-shadow: 0 0 0 0.15rem rgba(2, 71, 49, 0.25);
+  border-color: #024731;
+}
+
+.create-flyer-private-hint {
+  color: #5a6b62;
+  font-size: 0.82rem;
+  margin-top: 4px;
+  display: block;
+}
+
 /*explore page*/
 
 .explore-page {
