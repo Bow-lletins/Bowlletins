@@ -7,7 +7,7 @@ const SignOut = () => (
   <div className="signout-page">
     <div className="signout-note">
       <div className="signout-pin" />
-      <img src="signoutdoor.png" alt="Sign Out" className="signout-icon" />
+      <img src="/signout_door.png" alt="Sign Out" className="signout-icon" />
       <h2 className="signout-title">Sign out?</h2>
       <p className="signout-subtitle">
         You&apos;ll be returned to the home page and will need to sign in again to access your account.
