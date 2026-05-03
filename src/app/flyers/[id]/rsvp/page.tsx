@@ -3,14 +3,17 @@ import { prisma } from '@/lib/prisma';
 import { Container, Table, Badge } from 'react-bootstrap';
 import { notFound, redirect } from 'next/navigation';
 
-export default async function RsvpPage({ params }: { params: { id: string } }) {
+export default async function RsvpPage({ params }: { params: Promise<{ id: string }> }) {
   const session = await auth();
 
   if (!session?.user?.email) {
     redirect('/api/auth/signin');
   }
 
-  const flyerId = parseInt(params.id);
+  const { id } = await params;
+  const flyerId = parseInt(id);
+
+  if (isNaN(flyerId)) notFound();
 
   const flyer = await prisma.flyer.findUnique({
     where: { id: flyerId },
@@ -87,7 +90,7 @@ export default async function RsvpPage({ params }: { params: { id: string } }) {
       </section>
 
       <a href={`/flyers/${flyerId}`} className="btn btn-outline-secondary">
-        ← Back to Flyer
+        View Flyer
       </a>
     </Container>
   );
