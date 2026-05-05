@@ -3647,3 +3647,8 @@ textarea.form-control-custom {
   color: #ffffff;
   border-color: #3d5c3d;
 }
+
+/*invisible sign in page*/
+.invisible-card {
+  visibility: hidden;
+}
