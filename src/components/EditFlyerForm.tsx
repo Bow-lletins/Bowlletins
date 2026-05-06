@@ -129,8 +129,8 @@ const EditFlyerForm = ({ flyer }: { flyer: Flyer }) => {
             id="isPrivate"
             name="isPrivate"
             label="Make this flyer private"
-            defaultChecked={flyer.isPrivate}
             className="create-flyer-private-toggle"
+            defaultChecked={flyer.isPrivate}
           />
           <Form.Text className="create-flyer-private-hint">
             Private flyers are only visible to you.
